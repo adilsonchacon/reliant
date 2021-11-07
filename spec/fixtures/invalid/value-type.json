@@ -1,0 +1,11 @@
+[{
+  "key": {
+    "type": "text",
+    "mutable": false,
+    "default": "static_key"
+  },
+  "value": {
+    "type": "neither text, nor integer and nor child",
+    "mutable": true
+  }
+}]

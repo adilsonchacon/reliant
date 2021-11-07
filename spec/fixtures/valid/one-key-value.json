@@ -1,0 +1,11 @@
+[{
+  "key": {
+    "type": "text",
+    "mutable": false,
+    "default": "static_key"
+  },
+  "value": {
+    "type": "text",
+    "mutable": true
+  }
+}]

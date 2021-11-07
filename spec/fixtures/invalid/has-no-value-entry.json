@@ -1,0 +1,7 @@
+[{
+  "key": {
+    "type": "text",
+    "mutable": false,
+    "default": "static_key"
+  }
+}]

@@ -1,0 +1,37 @@
+[
+  {
+    "key": {
+      "type": "text",
+      "mutable": true,
+      "multiple": false
+    },
+    "value": {
+      "type": "child"
+    },
+    "children":
+    [
+      {
+        "key": {
+          "type": "text",
+          "mutable": false,
+          "default": "database"
+        },
+        "value": {
+          "type": "text",
+          "mutable": true
+        }
+      },
+      {
+        "key": {
+          "type": "text",
+          "mutable": false,
+          "default": "username"
+        },
+        "value": {
+          "type": "text",
+          "mutable": true
+        }
+      }
+    ]
+  }
+]

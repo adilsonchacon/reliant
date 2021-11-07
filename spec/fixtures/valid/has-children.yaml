@@ -1,0 +1,7 @@
+---
+<environment_1>:
+  database: <database>
+  username: <username>
+<environment_n>:
+  database: <database>
+  username: <username>
