@@ -113,12 +113,21 @@ RSpec.describe JsonForm, type: :model do
       end
     end
 
-    context 'should have error "content has key or value entry"' do
+    context 'should have error "does not have the key or does not have the value"' do
       let(:json_form) { build :json_form, content: File.read(File.join(Rails.root, 'spec', 'fixtures', 'invalid', 'has-no-keys-and-no-values-entries.json')).strip }
 
-      it "both does not exists" do
+      it do
         json_form.valid?
         expect(json_form.errors['content']).to include "does not have the key or does not have the value"
+      end
+    end
+
+    context 'should have error "entry has key and value are mutable"' do
+      let(:json_form) { build :json_form, content: File.read(File.join(Rails.root, 'spec', 'fixtures', 'invalid', 'key_and_value_are_mutable.json')).strip }
+
+      it do
+        json_form.valid?
+        expect(json_form.errors['content']).to include "entry has key and value are mutable"
       end
     end
   end

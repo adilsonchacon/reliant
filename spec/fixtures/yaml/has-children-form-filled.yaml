@@ -1,0 +1,7 @@
+---
+production:
+  database: store
+  username: postgres
+homologation:
+  database: store_test
+  username: root

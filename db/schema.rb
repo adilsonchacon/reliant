@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2021_11_05_201500) do
   create_table "values_forms", force: :cascade do |t|
     t.bigint "json_form_id", null: false
     t.text "content_yaml"
+    t.string "inputs", array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["json_form_id"], name: "index_values_forms_on_json_form_id"

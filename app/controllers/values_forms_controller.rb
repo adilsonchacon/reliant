@@ -46,6 +46,6 @@ class ValuesFormsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def values_form_params
-      params.require(:values_form).permit(:json_forms_id, :content_yaml)
+      params.require(:values_form).permit(:json_forms_id, :inputs)
     end
 end
