@@ -12,7 +12,7 @@ class ValuesForm < ApplicationRecord
   private
 
   def fill_content_yaml
-    return if self.json_form.nil?
+    return if self.json_form.nil? || self.json_form.content_yaml.nil?
 
     temp_content_yaml = self.json_form.content_yaml
     mutables = temp_content_yaml.scan(/(?<=\<)(.*?)(?=\>)/).flatten.map{ |m| "<#{m}>" }
