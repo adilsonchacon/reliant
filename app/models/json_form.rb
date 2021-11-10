@@ -1,15 +1,19 @@
 class JsonForm < ApplicationRecord
   attr_accessor :parsed_content, :content_array
 
-  VALID_KEY_TYPES = ['TEXT', 'INTEGER']
-
+  VALID_KEY_TYPES   = ['TEXT', 'INTEGER']
   VALID_VALUE_TYPES = ['TEXT', 'INTEGER', 'CHILD']
 
-  has_many :values_form
+  has_many :values_form, :dependent => :destroy
 
   before_validation :build_content_yaml
 
   validates_presence_of :content
+
+  def generate_structure_for_html_form
+    self.build_content_yaml
+    self.content_array
+  end
 
   private
 
@@ -108,6 +112,8 @@ class JsonForm < ApplicationRecord
     (0..(self.content_array.length - 1)).to_a.each do |line|
       stack_for_multiples.push(line) if self.content_array[line][:multiple]
     end
+
+    return if stack_for_multiples.size == 0
 
     stack_for_multiples.each do |line_start|
       level = self.content_array[line_start][:level]

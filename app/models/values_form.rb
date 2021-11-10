@@ -8,8 +8,20 @@ class ValuesForm < ApplicationRecord
   before_validation :fill_content_yaml
 
   validates_presence_of :content_yaml
+  validate :validate_inputs
 
   private
+
+  def validate_inputs
+    return if self.inputs.nil?
+
+    self.inputs.each do |input|
+      if input == ""
+        self.errors.add('inputs', 'has at least one empty string')
+        break
+      end
+    end
+  end
 
   def fill_content_yaml
     return if self.json_form.nil? || self.json_form.content_yaml.nil?
